@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>Beverly Hills Kaza | Premium Light Luxury Villas & Plots</title>
+  <title>Beverly Hills Kaza | Premium Light Luxury Villas & Plots – Phase 3 Launching Soon</title>
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -129,6 +129,19 @@
       background: rgba(255,255,255,0.8); border: 1px solid var(--gold-light);
       color: var(--charcoal); backdrop-filter: blur(4px);
     }
+    /* NEW PHASE BADGE - glowing announcement */
+    .phase-3-badge {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: white;
+      border: none;
+      box-shadow: 0 0 15px rgba(180,148,80,0.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(180,148,80,0.4); transform: scale(1);}
+      70% { box-shadow: 0 0 0 10px rgba(180,148,80,0); transform: scale(1.02);}
+      100% { box-shadow: 0 0 0 0 rgba(180,148,80,0); transform: scale(1);}
+    }
 
     /* Sections common */
     section { padding: 90px 60px; background: var(--cream); }
@@ -220,17 +233,39 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.02);
     }
 
-    /* Investment cards */
+    /* Investment cards - updated with Phase 3 */
     .investment-cards {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 45px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 45px;
     }
     .invest-card {
       background: var(--white); padding: 36px 28px;
       border: 1px solid var(--border-light); text-align: center;
       box-shadow: var(--shadow-sm);
+      transition: transform 0.3s;
     }
+    .invest-card:hover { transform: translateY(-6px); border-color: var(--gold-light);}
     .price { font-size: 2.5rem; font-weight: 700; color: var(--gold); font-family: 'Playfair Display', serif; }
     .per-text { font-size: 0.9rem; color: var(--slate); margin-bottom: 20px; }
+    .coming-soon-tag {
+      background: var(--gold-light);
+      color: var(--charcoal);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 18px;
+    }
+    .phase-badge {
+      font-size: 0.9rem;
+      font-weight: 700;
+      background: #f0ede8;
+      display: inline-block;
+      padding: 4px 12px;
+      margin-bottom: 12px;
+    }
 
     /* Gallery */
     .gallery-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 50px; }
@@ -280,6 +315,35 @@
       line-height: 1;
     }
 
+    /* Announcement banner for Phase 3 */
+    .global-announcement {
+      background: linear-gradient(90deg, #2b2b2b 0%, #3a3320 100%);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 12px 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      position: relative;
+      z-index: 101;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    }
+    .global-announcement strong {
+      color: #fff;
+      background: rgba(212, 175, 55, 0.2);
+      padding: 4px 12px;
+      border-radius: 40px;
+      margin: 0 8px;
+    }
+    .global-announcement i {
+      margin-right: 8px;
+    }
+    body {
+      padding-top: 0;
+    }
+    nav {
+      top: 0;
+    }
     @media (max-width: 1024px) {
       nav { padding: 16px 30px; } .nav-links { display: none; }
       section { padding: 70px 30px; }
@@ -287,6 +351,7 @@
       .amenities-grid { grid-template-columns: repeat(2, 1fr); }
       .highlights-list { grid-template-columns: 1fr; }
       .investment-cards { grid-template-columns: 1fr; }
+      .gallery-track { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px) {
       .amenities-grid { grid-template-columns: 1fr; }
@@ -299,10 +364,16 @@
         right: 20px;
       }
       .wa-float i { font-size: 2.2rem; }
+      .global-announcement { font-size: 0.75rem; padding: 8px 12px; }
     }
   </style>
 </head>
 <body>
+  <!-- PHASE 3 LAUNCHING SOON - ANNOUNCEMENT BANNER (visible on top) -->
+  <div class="global-announcement">
+    <i class="fas fa-star-of-life"></i> 🏆 <strong>Phase 3 Launching Soon!</strong> 🏆 <i class="fas fa-gem"></i> &nbsp; | &nbsp; Exclusive Premium Plots & Villas | Register Now for Early Bird Benefits &nbsp; <i class="fas fa-arrow-right"></i>
+  </div>
+
   <nav>
     <!-- Logo now links to #home (hero section) -->
     <a href="#home" class="nav-logo" aria-label="Go to home section">Beverly Hills <span>KAZA</span></a>
@@ -325,13 +396,14 @@
     <div class="hero-overlay"></div>
     <div class="hero-overlay-bottom"></div>
     <div class="hero-content">
-      <p class="hero-eyebrow">Phase 1 & 2 · Kaza, Amaravati Capital Region</p>
+      <p class="hero-eyebrow">Phase 1, 2 & New Phase 3 • Kaza, Amaravati Capital Region</p>
       <h1 class="hero-title">Beverly Hills<br><em>Kaza</em></h1>
       <div class="hero-subtitle-line"></div>
       <p class="hero-desc">Premium residential plots & villas in light-filled luxury</p>
       <div class="hero-badges">
         <span class="badge">🏡 Plots & Villas</span>
-        <span class="badge">✨ Phase 1 Open</span>
+        <span class="badge">✨ Phase 1 & 2 Selling Now</span>
+        <span class="badge phase-3-badge">🔥 PHASE 3 LAUNCHING SOON</span>
         <span class="badge">📍 Prime Kaza</span>
       </div>
       <button class="nav-cta" style="padding:15px 42px;" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Enquire Now</button>
@@ -392,24 +464,42 @@
     </ul>
   </section>
 
-  <!-- INVESTMENT OPPORTUNITIES -->
+  <!-- INVESTMENT OPPORTUNITIES - NOW WITH PHASE 3 COMING SOON -->
   <section id="investment" style="background:var(--white);">
     <span class="section-label">Investment Opportunities</span>
-    <h2 class="section-title">Payment <em>Options</em></h2>
+    <h2 class="section-title">Payment <em>Options</em> & New Phase</h2>
     <div class="investment-cards">
+      <!-- Phase 1 Card -->
       <div class="invest-card">
-        <div style="font-weight:700; font-size:1.3rem;">Beverly Hills Kaza Ph-1</div>
+        <div class="phase-badge" style="background:#f0ede8;">✨ Phase 1</div>
+        <div style="font-weight:700; font-size:1.3rem;">Beverly Hills Kaza</div>
         <p style="font-size:0.8rem; color:var(--slate); margin:10px 0;">Booking: ₹1,00,000 | Allotment: 25% in 7 days | Full: 100% in 30 days</p>
         <div class="price">₹26,999</div>
         <div class="per-text">Per Square Yard</div>
+        <div style="margin-top:10px; font-size:0.7rem; color:var(--gold);">📢 Limited Plots Available</div>
       </div>
+      <!-- Phase 2 Card -->
       <div class="invest-card">
-        <div style="font-weight:700; font-size:1.3rem;">Beverly Hills Kaza Ph-2</div>
+        <div class="phase-badge" style="background:#f0ede8;">🌟 Phase 2</div>
+        <div style="font-weight:700; font-size:1.3rem;">Beverly Hills Kaza</div>
         <p style="font-size:0.8rem; color:var(--slate); margin:10px 0;">Booking: ₹1,00,000 | Allotment: 25% in 7 days | Full: 100% in 30 days</p>
         <div class="price">₹25,999</div>
         <div class="per-text">Per Square Yard</div>
+        <div style="margin-top:10px; font-size:0.7rem; color:var(--gold);">🔥 High Demand Phase</div>
+      </div>
+      <!-- Phase 3 Card - Launching Soon Hero -->
+      <div class="invest-card" style="border: 2px solid var(--gold); background: linear-gradient(145deg, #fffef8, #fff9ef); position: relative; overflow: hidden;">
+        <div class="coming-soon-tag">⚡ Launching Soon ⚡</div>
+        <div style="font-weight:700; font-size:1.4rem; color:var(--gold-dark);">Phase 3</div>
+        <p style="font-size:0.9rem; margin: 12px 0; font-weight: 500;">Premium Extended Plots & Villas</p>
+        <div style="font-size:1rem; color:var(--charcoal); margin: 15px 0;">✨ Early Bird Benefits ✨</div>
+        <div class="price" style="font-size:1.9rem;">Coming Soon</div>
+        <div class="per-text">Register for exclusive launch pricing</div>
+        <button class="nav-cta" style="background: var(--gold-dark); margin-top: 18px; padding: 10px 20px;" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Notify Me →</button>
+        <div style="margin-top: 12px; font-size: 0.7rem; letter-spacing: 0.03em;"><i class="fas fa-gem"></i> Be the first to invest</div>
       </div>
     </div>
+    <p style="text-align: center; margin-top: 35px; font-size: 0.9rem; font-style: italic; color: var(--gold-dark);">*Phase 3 launch announcement: flexible payment plans, premium corner plots, exclusive villa designs. Contact us for priority list.</p>
   </section>
 
   <!-- GALLERY -->
@@ -424,27 +514,42 @@
     </div>
   </section>
 
-  <!-- ENQUIRY -->
+  <!-- ENQUIRY - with Phase 3 options -->
   <section class="enquiry" id="enquiry">
     <div>
       <span class="section-label">Get in Touch</span>
       <h2 class="section-title">Begin Your <em>Journey</em></h2>
       <div class="divider"></div>
       <p style="font-family:'Cormorant Garamond',serif; font-size:1.2rem;">Contact Srinivasarao Maganti · +91 92814 85629</p>
+      <div style="margin-top: 30px; background: rgba(212,175,55,0.1); padding: 16px; border-radius: 8px;">
+        <i class="fas fa-bullhorn" style="color: var(--gold);"></i> <strong>Phase 3 Priority Registration:</strong> Book your interest today to get exclusive preview & special launch offers.
+      </div>
     </div>
     <div class="form-card">
       <div id="enquiryForm">
-        <div class="form-row"><div class="form-group"><input type="text" id="fname" placeholder="Full Name"></div><div class="form-group"><input type="tel" id="fphone" placeholder="Mobile"></div></div>
-        <div class="form-group"><select id="fphase"><option>Phase 1</option><option>Phase 2</option></select></div>
-        <button class="form-submit" onclick="submitForm()">Send Enquiry →</button>
+        <div class="form-row">
+          <div class="form-group"><input type="text" id="fname" placeholder="Full Name"></div>
+          <div class="form-group"><input type="tel" id="fphone" placeholder="Mobile"></div>
+        </div>
+        <div class="form-group">
+          <select id="fphase">
+            <option value="Phase 1">Phase 1 (Available Now)</option>
+            <option value="Phase 2">Phase 2 (Available Now)</option>
+            <option value="Phase 3 - Launching Soon">🔥 Phase 3 - Launching Soon (Register Interest)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea rows="2" id="fmsg" placeholder="I'm interested in... (optional)"></textarea>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Enquire Now →</button>
       </div>
-      <div id="successMsg" style="display:none; text-align:center; padding:20px;"><h3>✓ Received!</h3><p>We'll contact you soon.</p></div>
+      <div id="successMsg" style="display:none; text-align:center; padding:20px;"><h3>✓ Interest Registered!</h3><p>We'll reach out with Phase 3 updates & pricing soon.</p></div>
     </div>
   </section>
 
   <footer>
     <a href="#home" class="nav-logo" style="text-decoration:none;">Beverly Hills <span>KAZA</span></a>
-    <div class="footer-dev">© 2025 Beverly Hills Kaza · Designed by <strong>SMYVISON TECHNOLOGIES</strong></div>
+    <div class="footer-dev">© 2025 Beverly Hills Kaza · Designed by <strong>SMYVISON TECHNOLOGIES</strong> · Phase 3 Coming Soon</div>
   </footer>
 
   <!-- BIGGER WHATSAPP FLOATING BUTTON WITH REAL ICON (Font Awesome) -->
@@ -456,10 +561,16 @@
     function submitForm() {
       const name = document.getElementById('fname').value.trim();
       const phone = document.getElementById('fphone').value.trim();
+      const phase = document.getElementById('fphase').value;
+      const customMsg = document.getElementById('fmsg').value.trim();
       if(!name || !phone) { alert('Please enter name and mobile number.'); return; }
+      let finalMsg = `🏡 Beverly Hills Kaza Enquiry\nName: ${name}\nPhone: ${phone}\nPhase: ${phase}`;
+      if(customMsg) finalMsg += `\nMessage: ${customMsg}`;
+      // Hide form, show success message
       document.getElementById('enquiryForm').style.display='none';
       document.getElementById('successMsg').style.display='block';
-      window.open(`https://wa.me/919281485629?text=${encodeURIComponent('Beverly Hills Kaza enquiry from '+name+' - '+phone)}`, '_blank');
+      // Optional: send WhatsApp message automatically.
+      window.open(`https://wa.me/919281485629?text=${encodeURIComponent(finalMsg)}`, '_blank');
     }
   </script>
 </body>
