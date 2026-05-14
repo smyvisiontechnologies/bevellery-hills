@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>Beverly Hills Kaza | Premium Light Luxury Villas & Plots</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 for authentic WhatsApp icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --gold: #B49450;
+      --gold-light: #D4AF37;
+      --gold-dark: #8B6F34;
+      --soft-gold-bg: #F9F6F0;
+      --cream: #FFFDF7;
+      --white: #FFFFFF;
+      --charcoal: #2B2B2B;
+      --slate: #5A5A5A;
+      --muted: #7C7C7C;
+      --border-light: #E8E0D3;
+      --shadow-sm: 0 12px 30px rgba(0,0,0,0.04);
+      --transition: all 0.3s ease;
+      --whatsapp-green: #25D366;
+      --whatsapp-dark: #128C7E;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Light navbar */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px;
+      background: rgba(255, 253, 247, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(180,148,80,0.15);
+      transition: background 0.4s ease;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; letter-spacing: 0.03em;
+      color: var(--charcoal); font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .nav-logo:hover { opacity: 0.8; }
+    .nav-logo span { color: var(--gold); font-weight: 700; }
+    .nav-links { display: flex; gap: 34px; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 500; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--slate);
+      text-decoration: none; transition: color 0.3s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+      background: var(--gold); transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--charcoal); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--white);
+      background: var(--gold); border: none; cursor: pointer;
+      padding: 11px 30px; border-radius: 2px;
+      transition: all 0.3s; box-shadow: 0 4px 12px rgba(180,148,80,0.25);
+    }
+    .nav-cta:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    /* HERO section */
+    .hero {
+      position: relative; height: 100vh; min-height: 700px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; background: #F5EFE6;
+    }
+    .hero-video-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.65; filter: brightness(1.1) contrast(0.95);
+      pointer-events: none;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,253,247,0.8) 0%, rgba(249,246,240,0.55) 50%, rgba(255,255,255,0.7) 100%);
+    }
+    .hero-overlay-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 160px;
+      background: linear-gradient(0deg, var(--cream) 0%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 3; text-align: center; padding: 0 20px;
+      animation: heroIn 1.4s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    @keyframes heroIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-eyebrow {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--gold-dark); margin-bottom: 22px;
+      background: rgba(255,255,255,0.7); display: inline-block; padding: 4px 16px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 8vw, 6.5rem); font-weight: 700; line-height: 1.05;
+      color: var(--charcoal); margin-bottom: 10px;
+    }
+    .hero-title em { color: var(--gold); font-style: italic; }
+    .hero-subtitle-line { width: 90px; height: 2px; background: var(--gold); margin: 28px auto; }
+    .hero-desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem; font-weight: 400; color: var(--slate);
+      letter-spacing: 0.03em; max-width: 540px; margin: 0 auto 40px;
+    }
+    .hero-badges { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+    .badge {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; padding: 10px 22px;
+      background: rgba(255,255,255,0.8); border: 1px solid var(--gold-light);
+      color: var(--charcoal); backdrop-filter: blur(4px);
+    }
+
+    /* Sections common */
+    section { padding: 90px 60px; background: var(--cream); }
+    .section-label {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.32em;
+      text-transform: uppercase; color: var(--gold-dark); margin-bottom: 14px; display: block;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700;
+      line-height: 1.2; color: var(--charcoal);
+    }
+    .section-title em { color: var(--gold); font-style: italic; }
+    .divider { width: 70px; height: 2px; background: var(--gold); margin: 24px 0; }
+
+    /* VIDEO SHOWCASE SECTION */
+    .video-showcase {
+      background: var(--white);
+      padding: 80px 60px;
+      text-align: center;
+    }
+    .video-container {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      background: #fff;
+      border: 1px solid var(--border-light);
+      position: relative;
+    }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #000;
+      outline: none;
+    }
+    .video-caption {
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: var(--slate);
+      font-weight: 400;
+      letter-spacing: 0.03em;
+    }
+    .video-caption strong { color: var(--gold-dark); }
+
+    /* About */
+    .about {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+      background: var(--white);
+    }
+    .about-text p {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;
+      color: var(--slate); line-height: 1.8; margin-bottom: 22px;
+    }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+    .stat-card {
+      background: var(--soft-gold-bg); padding: 24px 20px;
+      border-left: 3px solid var(--gold); transition: var(--transition);
+    }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold); }
+    .stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); }
+
+    /* Amenities grid */
+    .amenities-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+      margin-top: 50px;
+    }
+    .amenity-item {
+      background: var(--white); padding: 24px 18px;
+      border: 1px solid var(--border-light);
+      text-align: center; transition: 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .amenity-item:hover { border-color: var(--gold-light); transform: translateY(-4px); }
+    .amenity-icon { font-size: 1.8rem; margin-bottom: 12px; }
+    .amenity-name { font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em; color: var(--charcoal); }
+
+    /* Location highlights */
+    .highlights-list {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+      margin-top: 40px; list-style: none;
+    }
+    .highlights-list li {
+      background: var(--white); padding: 16px 20px;
+      border-left: 4px solid var(--gold);
+      font-weight: 500; font-size: 0.9rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    /* Investment cards */
+    .investment-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 45px;
+    }
+    .invest-card {
+      background: var(--white); padding: 36px 28px;
+      border: 1px solid var(--border-light); text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .price { font-size: 2.5rem; font-weight: 700; color: var(--gold); font-family: 'Playfair Display', serif; }
+    .per-text { font-size: 0.9rem; color: var(--slate); margin-bottom: 20px; }
+
+    /* Gallery */
+    .gallery-track { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 50px; }
+    .gallery-item img { width: 100%; height: 240px; object-fit: cover; border-radius: 4px; transition: 0.4s; }
+    .gallery-item:hover img { transform: scale(1.03); filter: brightness(1.05); }
+
+    /* Enquiry */
+    .enquiry { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; background: var(--soft-gold-bg); }
+    .form-card { background: var(--white); padding: 44px 38px; box-shadow: var(--shadow-sm); border-top: 3px solid var(--gold); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; background: var(--cream); border: 1px solid var(--border-light);
+      padding: 13px; font-family: 'Jost', sans-serif;
+    }
+    .form-submit { background: var(--gold); color: white; border: none; padding: 16px; width: 100%; font-weight: 700; cursor: pointer; }
+
+    footer { background: var(--white); padding: 40px 60px; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .footer-dev { color: var(--muted); font-size: 0.8rem; }
+
+    /* BIGGER WHATSAPP FLOAT BUTTON with real icon */
+    .wa-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2.4rem;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      z-index: 200;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    .wa-float:hover {
+      background: #128C7E;
+      transform: scale(1.08);
+      box-shadow: 0 12px 28px rgba(18, 140, 126, 0.5);
+    }
+    .wa-float i {
+      font-size: 2.6rem;
+      line-height: 1;
+    }
+
+    @media (max-width: 1024px) {
+      nav { padding: 16px 30px; } .nav-links { display: none; }
+      section { padding: 70px 30px; }
+      .about, .enquiry { grid-template-columns: 1fr; }
+      .amenities-grid { grid-template-columns: repeat(2, 1fr); }
+      .highlights-list { grid-template-columns: 1fr; }
+      .investment-cards { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .amenities-grid { grid-template-columns: 1fr; }
+      .gallery-track { grid-template-columns: repeat(2, 1fr); }
+      .form-row { grid-template-columns: 1fr; }
+      .wa-float {
+        width: 62px;
+        height: 62px;
+        bottom: 20px;
+        right: 20px;
+      }
+      .wa-float i { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <!-- Logo now links to #home (hero section) -->
+    <a href="#home" class="nav-logo" aria-label="Go to home section">Beverly Hills <span>KAZA</span></a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#video">Project Video</a>
+      <a href="#amenities">Amenities</a>
+      <a href="#location">Location</a>
+      <a href="#investment">Invest</a>
+      <a href="#enquiry">Enquire</a>
+    </div>
+    <button class="nav-cta" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Book Visit</button>
+  </nav>
+
+  <!-- HERO (with background video, no controls) -->
+  <section class="hero" id="home">
+    <video class="hero-video-bg" autoplay muted loop playsinline>
+      <source src="vedio1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-bottom"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Phase 1 & 2 · Kaza, Amaravati Capital Region</p>
+      <h1 class="hero-title">Beverly Hills<br><em>Kaza</em></h1>
+      <div class="hero-subtitle-line"></div>
+      <p class="hero-desc">Premium residential plots & villas in light-filled luxury</p>
+      <div class="hero-badges">
+        <span class="badge">🏡 Plots & Villas</span>
+        <span class="badge">✨ Phase 1 Open</span>
+        <span class="badge">📍 Prime Kaza</span>
+      </div>
+      <button class="nav-cta" style="padding:15px 42px;" onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">Enquire Now</button>
+    </div>
+  </section>
+
+  <!-- SEPARATE VIDEO SECTION (full controls, enlarge, audio) -->
+  <section class="video-showcase" id="video">
+    <span class="section-label">Project Walkthrough</span>
+    <h2 class="section-title">Experience <em>Beverly Hills Kaza</em></h2>
+    <div class="divider" style="margin:20px auto;"></div>
+    <p style="max-width:600px; margin:0 auto 10px; color:var(--slate);">Full video with controls – play, pause, volume, fullscreen. See every detail of the project.</p>
+    <div class="video-container">
+      <video controls controlsList="nodownload" poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop">
+        <source src="vedio.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="video-caption"><strong>🔊 Audio available</strong> · Click fullscreen icon to enlarge · Full project details inside</div>
+  </section>
+
+  <!-- AMENITIES (all mentioned) -->
+  <section id="amenities" style="background:var(--white);">
+    <span class="section-label">World-Class Amenities</span>
+    <h2 class="section-title">Crafted for <em>Fine Living</em></h2>
+    <div class="amenities-grid">
+      <div class="amenity-item"><div class="amenity-icon">🔐</div><div class="amenity-name">24x7 Security</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🧘</div><div class="amenity-name">100% Vastu</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🏛️</div><div class="amenity-name">Club House</div></div>
+      <div class="amenity-item"><div class="amenity-icon">💡</div><div class="amenity-name">Designer Street Lighting</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🏘️</div><div class="amenity-name">Exclusive Guarded Community</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🌳</div><div class="amenity-name">Parks & Gardens Open Spaces</div></div>
+      <div class="amenity-item"><div class="amenity-icon">💧</div><div class="amenity-name">Rain Water Harvesting</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🏊</div><div class="amenity-name">Swimming Pool</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🚿</div><div class="amenity-name">Underground Drainage System</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🚰</div><div class="amenity-name">Underground Water Supply</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🛣️</div><div class="amenity-name">Wide Spacious Black Top Roads</div></div>
+      <div class="amenity-item"><div class="amenity-icon">🏡</div><div class="amenity-name">Residential Plots for Sale</div></div>
+    </div>
+  </section>
+
+  <!-- LOCATION HIGHLIGHTS -->
+  <section id="location">
+    <span class="section-label">Location Advantages</span>
+    <h2 class="section-title">Project <em>Highlights</em></h2>
+    <ul class="highlights-list">
+      <li>✅ Amaravati Core Capital – The future hub of opportunities</li>
+      <li>✅ Butterfly Junction @ Kaza – A strategic connectivity point</li>
+      <li>✅ Inner & Outer Ring Roads – Excellent road network access</li>
+      <li>✅ West & East Bypass Roads – Smooth traffic bypass routes</li>
+      <li>✅ NH-16 National Highway – Fast & seamless transportation corridor</li>
+      <li>✅ Ramakrishna Venuzia IT Towers & Mega Gated Communities</li>
+      <li>✅ Ratan Tata Innovation Hub – Future IT & Innovation Center</li>
+      <li>✅ Amaravati – Anantapur Expressway – Statewide easy connectivity</li>
+      <li>✅ Namburu – Errupalem Railway Junction – Railway transport access</li>
+      <li>✅ AIIMS & Acharya Nagarjuna University – Premier education & Hospital hub</li>
+      <li>✅ IT Corridor – The center for jobs & growth</li>
+    </ul>
+  </section>
+
+  <!-- INVESTMENT OPPORTUNITIES -->
+  <section id="investment" style="background:var(--white);">
+    <span class="section-label">Investment Opportunities</span>
+    <h2 class="section-title">Payment <em>Options</em></h2>
+    <div class="investment-cards">
+      <div class="invest-card">
+        <div style="font-weight:700; font-size:1.3rem;">Beverly Hills Kaza Ph-1</div>
+        <p style="font-size:0.8rem; color:var(--slate); margin:10px 0;">Booking: ₹1,00,000 | Allotment: 25% in 7 days | Full: 100% in 30 days</p>
+        <div class="price">₹26,999</div>
+        <div class="per-text">Per Square Yard</div>
+      </div>
+      <div class="invest-card">
+        <div style="font-weight:700; font-size:1.3rem;">Beverly Hills Kaza Ph-2</div>
+        <p style="font-size:0.8rem; color:var(--slate); margin:10px 0;">Booking: ₹1,00,000 | Allotment: 25% in 7 days | Full: 100% in 30 days</p>
+        <div class="price">₹25,999</div>
+        <div class="per-text">Per Square Yard</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <span class="section-label">Gallery</span>
+    <h2 class="section-title">Visual <em>Poetry</em></h2>
+    <div class="gallery-track">
+      <div class="gallery-item"><img src="https://www.bbgindia.com/assets/img/g1_134076800326902035.png?q=80&w=2075&auto=format&fit=crop" alt="Villa"></div>
+      <div class="gallery-item"><img src="https://www.bbgindia.com/assets/img/Img-1_134076800971374647.jpeg?q=80&w=1974&auto=format&fit=crop" alt="Interior"></div>
+      <div class="gallery-item"><img src="https://www.bbgindia.com/assets/img/Img-2_134076800971926311.jpeg?q=80&w=2070&auto=format&fit=crop" alt="Garden"></div>
+      <div class="gallery-item"><img src="https://www.bbgindia.com/assets/img/1_134029908007190197.jpeg?q=80&w=2070&auto=format&fit=crop" alt="Twilight"></div>
+    </div>
+  </section>
+
+  <!-- ENQUIRY -->
+  <section class="enquiry" id="enquiry">
+    <div>
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Begin Your <em>Journey</em></h2>
+      <div class="divider"></div>
+      <p style="font-family:'Cormorant Garamond',serif; font-size:1.2rem;">Contact Srinivasarao Maganti · +91 92814 85629</p>
+    </div>
+    <div class="form-card">
+      <div id="enquiryForm">
+        <div class="form-row"><div class="form-group"><input type="text" id="fname" placeholder="Full Name"></div><div class="form-group"><input type="tel" id="fphone" placeholder="Mobile"></div></div>
+        <div class="form-group"><select id="fphase"><option>Phase 1</option><option>Phase 2</option></select></div>
+        <button class="form-submit" onclick="submitForm()">Send Enquiry →</button>
+      </div>
+      <div id="successMsg" style="display:none; text-align:center; padding:20px;"><h3>✓ Received!</h3><p>We'll contact you soon.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#home" class="nav-logo" style="text-decoration:none;">Beverly Hills <span>KAZA</span></a>
+    <div class="footer-dev">© 2025 Beverly Hills Kaza · Designed by <strong>SMYVISON TECHNOLOGIES</strong></div>
+  </footer>
+
+  <!-- BIGGER WHATSAPP FLOATING BUTTON WITH REAL ICON (Font Awesome) -->
+  <a class="wa-float" href="https://wa.me/919281485629" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script>
+    function submitForm() {
+      const name = document.getElementById('fname').value.trim();
+      const phone = document.getElementById('fphone').value.trim();
+      if(!name || !phone) { alert('Please enter name and mobile number.'); return; }
+      document.getElementById('enquiryForm').style.display='none';
+      document.getElementById('successMsg').style.display='block';
+      window.open(`https://wa.me/919281485629?text=${encodeURIComponent('Beverly Hills Kaza enquiry from '+name+' - '+phone)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
